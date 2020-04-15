@@ -6,21 +6,10 @@ let router = express.Router();
 let StudentCollection = require('../models/EntrySchemaOne');
 let TeacherCollection = require('../models/EntrySchemaTwo')
 
-let student={
-	"studentName":"Charlie",
-	"studentEmail":"charlie@gmailcom"
-}
-
-let teacher ={
-	"teacherName":"Waldo",
-	"teacherEmail":"waldo@gmail.com",
-	"teacherCourseFocus":"Computer Science"
-}
-
 //Create student
 router.post('/student',(req,res)=>{
     // res.send(`Created student`)
-    StudentCollection.create(student,(errors,results)=>{
+    StudentCollection.create(req.body,(errors,results)=>{
         errors ? res.send(errors) : res.send(results);
     })
    
@@ -37,7 +26,7 @@ router.get('/student/:studentEmail',(req,res)=>{
 //Update student by email address
 router.put('/student/:studentEmail',(req,res)=>{
     // res.send(`Update student by email`)
-    StudentCollection.findOneAndUpdate({studentEmail:req.params.studentEmail},student,(errors,results)=>{
+    StudentCollection.findOneAndUpdate({studentEmail:req.params.studentEmail},req.body,(errors,results)=>{
         errors ? res.send(errors) : res.send(results);
     })
 })
@@ -45,7 +34,7 @@ router.put('/student/:studentEmail',(req,res)=>{
 //Delete student by email address
 router.delete('/student/:studentEmail',(req,res)=>{
     // res.send(`Delete student by email`)
-    StudentCollection.findOneAndDelete({studentEmail:req.params.studentEmail},student,(errors,results)=>{
+    StudentCollection.findOneAndDelete({studentEmail:req.params.studentEmail},(errors,results)=>{
         errors ? res.send(errors) : res.send(results);
     })
 })
@@ -53,7 +42,7 @@ router.delete('/student/:studentEmail',(req,res)=>{
 //Read all students
 router.get('/student',(req,res)=>{
     // res.send(`Get all students`)
-    StudentCollection.find({},(errrors,results)=>{
+    StudentCollection.find({},(errors,results)=>{
         errors ? res.send(errrors) : res.send(results);
     })
 })
@@ -63,7 +52,7 @@ router.get('/student',(req,res)=>{
 //Create teacher
 router.post('/teacher',(req,res)=>{
     // res.send(`Created teacher`)
-    TeacherCollection.create(teacher,(errors,results)=>{
+    TeacherCollection.create(req.body,(errors,results)=>{
         errors ? res.send(errors) : res.send(results);
     })
 })

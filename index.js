@@ -7,6 +7,10 @@ let app = express();
 //port number
 let portNumber = 2112;
 
+//HAS TO BE ABOVE THE IMPORTED ROUTE!!!
+//json middleware
+app.use(express.json());
+
 // CONNECTING TO A MONGO DATABASE
 // reference the mongoose module 
 let mongoose = require('mongoose');
@@ -17,12 +21,13 @@ mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true, useF
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+
+
 //import and mount route
 let api = require('./routes/api');
 app.use('/api',api);
 
-//json middleware
-app.use(express.json());
+
 
 //listen on port
 app.listen(portNumber,()=>{

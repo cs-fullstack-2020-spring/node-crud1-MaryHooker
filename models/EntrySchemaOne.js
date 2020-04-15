@@ -6,7 +6,7 @@ let Schema = mongoose.Schema;
 let EntrySchemaOne = new Schema(
     {
         "studentName": String,
-        "studentEmail": String,
+        "studentEmail": String
     }
 );
 
