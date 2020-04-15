@@ -7,6 +7,7 @@ let app = express();
 //port number
 let portNumber = 2112;
 
+// !! You don't even need this line, this file doesn't directly read any json
 //HAS TO BE ABOVE THE IMPORTED ROUTE!!!
 //json middleware
 app.use(express.json());

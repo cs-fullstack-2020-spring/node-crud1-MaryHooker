@@ -1,5 +1,8 @@
 # Node.js - CRUD backend web service
 
+### Should have picked better names for your schemas (like TeacherSchema and StudentSchema). Check out a couple other comments in your index.js file. Looks great overall!
+### Score : 5/5
+
 Create a backend web service for managing Students and Teachers and maintain them in MongoDB
 
 Each Student should have the following properties:
