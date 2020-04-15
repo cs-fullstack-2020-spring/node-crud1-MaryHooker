@@ -1,0 +1,281 @@
+{
+	"info": {
+		"_postman_id": "ab6f0259-6e0b-48ab-aba0-9b87b3a9c5fa",
+		"name": "20-04-15 CRUD & Mongo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Morning CW",
+			"item": [
+				{
+					"name": "Student",
+					"item": [
+						{
+							"name": "Create new student",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"studentName\":\"Joe\",\n\t\"studentEmail\":\"joe@gmail.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:2112/api/student/",
+									"host": [
+										"localhost"
+									],
+									"port": "2112",
+									"path": [
+										"api",
+										"student",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get student by email",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:2112/api/student/joe@AOL.com",
+									"host": [
+										"localhost"
+									],
+									"port": "2112",
+									"path": [
+										"api",
+										"student",
+										"joe@AOL.com"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Student by email",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"studentName\":\"Joe\",\n\t\"studentEmail\":\"joe@AOL.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:2112/api/student/joe@gmail.com",
+									"host": [
+										"localhost"
+									],
+									"port": "2112",
+									"path": [
+										"api",
+										"student",
+										"joe@gmail.com"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Student by email",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"studentName\":\"Joe\",\n\t\"studentEmail\":\"joe@AOL.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:2112/api/student/joe@AOL.com",
+									"host": [
+										"localhost"
+									],
+									"port": "2112",
+									"path": [
+										"api",
+										"student",
+										"joe@AOL.com"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all students",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:2112/api/student",
+									"host": [
+										"localhost"
+									],
+									"port": "2112",
+									"path": [
+										"api",
+										"student"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Teacher",
+					"item": [
+						{
+							"name": "Create new Teacher",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"teacherName\":\"Randall\",\n\t\"teacherEmail\":\"randall@gmail.com\",\n\t\"teacherCourseFocus\":\"French\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:2112/api/teacher",
+									"host": [
+										"localhost"
+									],
+									"port": "2112",
+									"path": [
+										"api",
+										"teacher"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get teacher by email",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:2112/api/teacher/randall@gmail.com",
+									"host": [
+										"localhost"
+									],
+									"port": "2112",
+									"path": [
+										"api",
+										"teacher",
+										"randall@gmail.com"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update teacher by email",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"teacherName\":\"Randall\",\n\t\"teacherEmail\":\"randall@gmail.com\",\n\t\"teacherCourseFocus\":\"Archaeology\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:2112/api/teacher/randall@gmail.com",
+									"host": [
+										"localhost"
+									],
+									"port": "2112",
+									"path": [
+										"api",
+										"teacher",
+										"randall@gmail.com"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete teacher by email",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"teacherName\":\"Randall\",\n\t\"teacherEmail\":\"randall@gmail.com\",\n\t\"teacherCourseFocus\":\"Archaeology\"\n}\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:2112/api/teacher/randall@gmail.com",
+									"host": [
+										"localhost"
+									],
+									"port": "2112",
+									"path": [
+										"api",
+										"teacher",
+										"randall@gmail.com"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all teachers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:2112/api/teacher",
+									"host": [
+										"localhost"
+									],
+									"port": "2112",
+									"path": [
+										"api",
+										"teacher"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
