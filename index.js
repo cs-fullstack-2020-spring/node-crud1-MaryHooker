@@ -7,6 +7,10 @@ let app = express();
 //port number
 let portNumber = 2112;
 
+//import and mount route
+let api = require('./routes/api');
+app.use('/api',api);
+
 //json middleware
 app.use(express.json());
 
