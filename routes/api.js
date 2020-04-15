@@ -6,33 +6,56 @@ let router = express.Router();
 let StudentCollection = require('../models/EntrySchemaOne');
 let TeacherCollection = require('../models/EntrySchemaTwo')
 
+let student={
+	"studentName":"Charlie",
+	"studentEmail":"charlie@gmailcom"
+}
+
+let teacher ={
+	"teacherName":"Waldo",
+	"teacherEmail":"waldo@gmail.com",
+	"teacherCourseFocus":"Computer Science"
+}
+
 //Create student
 router.post('/student',(req,res)=>{
     // res.send(`Created student`)
-    StudentCollection.create(req.body,(errors,results)=>{
+    StudentCollection.create(student,(errors,results)=>{
         errors ? res.send(errors) : res.send(results);
     })
    
 })
 
 //Read student by email address
-router.get('/student/:emailAddress',(req,res)=>{
+router.get('/student/:studentEmail',(req,res)=>{
     // res.send(`Get student by email`)
+    StudentCollection.findOne({studentEmail:req.params.studentEmail},(errors,results)=>{
+        errors ? res.send(errors) : res.send(results);
+    })
 })
 
 //Update student by email address
-router.put('/student/:emailAddress',(req,res)=>{
+router.put('/student/:studentEmail',(req,res)=>{
     // res.send(`Update student by email`)
+    StudentCollection.findOneAndUpdate({studentEmail:req.params.studentEmail},student,(errors,results)=>{
+        errors ? res.send(errors) : res.send(results);
+    })
 })
 
 //Delete student by email address
-router.delete('/student/:emailAddress',(req,res)=>{
+router.delete('/student/:studentEmail',(req,res)=>{
     // res.send(`Delete student by email`)
+    StudentCollection.findOneAndDelete({studentEmail:req.params.studentEmail},student,(errors,results)=>{
+        errors ? res.send(errors) : res.send(results);
+    })
 })
 
 //Read all students
 router.get('/student',(req,res)=>{
     // res.send(`Get all students`)
+    StudentCollection.find({},(errrors,results)=>{
+        errors ? res.send(errrors) : res.send(results);
+    })
 })
 
 /////////////////////////////////////////////////////////////////
@@ -40,29 +63,41 @@ router.get('/student',(req,res)=>{
 //Create teacher
 router.post('/teacher',(req,res)=>{
     // res.send(`Created teacher`)
-    TeacherCollection.create(req.body,(errors,results)=>{
+    TeacherCollection.create(teacher,(errors,results)=>{
         errors ? res.send(errors) : res.send(results);
     })
 })
 
 //Read teacher by email address
-router.get('/teacher/:emailAddress',(req,res)=>{
-    res.send(`Get teacher by email`)
+router.get('/teacher/:teacherEmail',(req,res)=>{
+    // res.send(`Get teacher by email`)
+    TeacherCollection.findOne({teacherEmail:req.params.teacherEmail},(errors,results)=>{
+        errors ? res.send(errors) : res.send(results);
+    })
 })
 
 //Update teacher by email address
-router.put('/teacher/:emailAddress',(req,res)=>{
-    res.send(`Update teacher by email`)
+router.put('/teacher/:teacherEmail',(req,res)=>{
+    // res.send(`Update teacher by email`)
+    TeacherCollection.findOneAndUpdate({teacherEmail:req.params.teacherEmail},(errors,results)=>{
+        errors ? res.send(errors) : res.send(results);
+    })
 })
 
 //Delete teacher by email address
-router.delete('/teacher/:emailAddress',(req,res)=>{
-    res.send(`Delete teacher by email`)
+router.delete('/teacher/:teacherEmail',(req,res)=>{
+    // res.send(`Delete teacher by email`)
+    TeacherCollection.findOneAndDelete({teacherEmail:req.params.teacherEmail},(errors,results)=>{
+        errors ? res.send(errors) : res.send(results);
+    })
 })
 
 //Read all teachers
 router.get('/teacher',(req,res)=>{
-    res.send(`Get all teachers`)
+    // res.send(`Get all teachers`)
+    TeacherCollection.find({},(errors,results)=>{
+        errors ? res.send(errors) : res.send(results);
+    })
 })
 
 // //sanity
