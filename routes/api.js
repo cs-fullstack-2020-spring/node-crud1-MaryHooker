@@ -68,7 +68,7 @@ router.get('/teacher/:teacherEmail',(req,res)=>{
 //Update teacher by email address
 router.put('/teacher/:teacherEmail',(req,res)=>{
     // res.send(`Update teacher by email`)
-    TeacherCollection.findOneAndUpdate({teacherEmail:req.params.teacherEmail},(errors,results)=>{
+    TeacherCollection.findOneAndUpdate({teacherEmail:req.params.teacherEmail},req.body,(errors,results)=>{
         errors ? res.send(errors) : res.send(results);
     })
 })
